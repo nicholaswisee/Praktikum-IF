@@ -1,26 +1,38 @@
 #include <stdio.h>
-#include <math.h>
 
 int main() {
 
-    double N;
-    double comb;
+    int N, comb;
 
-    scanf("%lf", &N);
+    scanf("%d", &N);
 
-    for (double n = 0; n < N; n++) {
-        for (double k = 0; k <= n; k++){
-            if (k == 0) {
-               comb = (tgamma(n + 1)) / ((tgamma(k + 1) * tgamma(n-k + 1)));
-            } else {
-                comb *= (n - (k - 1))/(k);
-            }
-            printf("%.0lf ", comb); 
-
-        }
-        printf("\n");
+    if (N < 1 || N > 60) {
+        return 0;
     }
 
-    printf("\n");
+    for (int n = 0; n < N; n++) {
+        
+        int C = 1; 
+      
+        for (int j = (N - n - 2); j >= 0; j--) {
+            printf(" ");
+        }
+        
+        for (int k = 0; k <= n; k++) {
+            printf("%d", C);
+            
+            C = C * (n - k) / (k + 1);
+            
+            if (k < n) {
+                printf(" ");
+            }
+        }
+        
+        printf("\n");
+    }
+    
     return 0;
-}
+    
+} 
+
+//cuma 70 :(
