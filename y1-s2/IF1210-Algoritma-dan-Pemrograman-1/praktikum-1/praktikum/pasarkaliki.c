@@ -2,9 +2,9 @@
 
 int main() {
 
-    int N, comb;
+    long long int N, comb;
 
-    scanf("%d", &N);
+    scanf("%ld", &N);
 
     if (N < 1 || N > 60) {
         return 0;
