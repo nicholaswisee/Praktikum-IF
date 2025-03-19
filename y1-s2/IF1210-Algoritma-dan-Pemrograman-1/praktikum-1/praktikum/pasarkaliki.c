@@ -2,9 +2,9 @@
 
 int main() {
 
-    long long int N, comb;
+    unsigned long long int N, comb;
 
-    scanf("%ld", &N);
+    scanf("%llu", &N);
 
     if (N < 1 || N > 60) {
         return 0;
@@ -12,14 +12,14 @@ int main() {
 
     for (int n = 0; n < N; n++) {
         
-        int C = 1; 
+        unsigned long long int C = 1; 
       
         for (int j = (N - n - 2); j >= 0; j--) {
             printf(" ");
         }
         
         for (int k = 0; k <= n; k++) {
-            printf("%d", C);
+            printf("%llu", C);
             
             C = C * (n - k) / (k + 1);
             
