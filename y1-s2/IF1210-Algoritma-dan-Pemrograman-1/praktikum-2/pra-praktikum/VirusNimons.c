@@ -3,11 +3,11 @@
 
 int main() {
 
-    int N, T, X, increment;
+    unsigned long long int N, T, X, increment;
 
-    scanf("%d", &N);
-    scanf("%d", &T);
-    scanf("%d", &X);
+    scanf("%llu", &N);
+    scanf("%llu", &T);
+    scanf("%llu", &X);
 
     increment = N * X;
     for (int i = 0; i <=T; i++) {
@@ -16,7 +16,7 @@ int main() {
             increment *= X;
         }
     }
-    printf("Terdapat %d Virus Nimons Gila pada jam ke-%d\n", N, T);
+    printf("Terdapat %llu Virus Nimons Gila pada jam ke-%llu\n", N, T);
 
     return 0;
-}
+}   
