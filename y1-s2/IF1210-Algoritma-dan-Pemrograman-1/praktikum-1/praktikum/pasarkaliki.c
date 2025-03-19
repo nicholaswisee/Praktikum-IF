@@ -35,4 +35,4 @@ int main() {
     
 } 
 
-//cuma 70 :(
+//udah 100, makasih Endra dan Jason :)

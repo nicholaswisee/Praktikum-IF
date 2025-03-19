@@ -4,8 +4,6 @@
 int main() {
 
     int N, factor, count, factorcount = 0;
-    char output[16] = "";
-    char tempstring[16] = "";
 
     scanf("%d", &N);
 
