@@ -55,7 +55,7 @@ Langkah ke-1
 {jika input = 1}Nimons menutup lubang!
 ...
 Langkah ke-<n>
-{jika input > 0}Nimons bergerak sejauh <banyak_langkah> langkah
+{jika input > 0}Nimons bergerak sepjauh <banyak_langkah> langkah
 {jika input = 1}Nimons menemukan harta karun!
 {jika input = 1}Nimons menutup lubang!
 
