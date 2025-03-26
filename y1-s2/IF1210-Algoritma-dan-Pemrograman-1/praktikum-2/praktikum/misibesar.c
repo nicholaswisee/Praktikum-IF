@@ -36,50 +36,25 @@ int getDaysInMonth(int month, int year)
   // TODO: Implementasi fungsi getDaysInMonth
   switch (month) {
     case 1:
-    return 31;
-        break;
-    case 2:
-        if (isLeapYear(year) == 1) {
-            return 29;
-            break;            
-        } else {
-            return 28;
-            break;
-        }
     case 3:
-        return 31;
-        break;
-    case 4:
-        return 30;
-        break;
     case 5:
-        return 31;
-        break;
-    case 6:
-        return 30;
-        break;
     case 7:
-        return 31;
-        break;
     case 8:
-        return 31;
-        break;
-    case 9:
-        return 30;
-        break;
     case 10:
-        return 31;
-        break;
-    case 11:
-        return 30;
-        break;
     case 12:
         return 31;
-        break;    
-    default:
-        break;
-  }
-
+    case 4:
+    case 6:
+    case 9:
+    case 11:
+        return 30;
+    case 2:
+        if (isLeapYear(year) == 1) {
+          return 29;
+        } else {
+          return 28;
+        }
+}
 }
 
 /**
@@ -173,55 +148,26 @@ long long dateDifference(int d1, int m1, int y1, int d2, int m2, int y2)
 int main() {
 //   TODO: Implementasi program utama
     int d1, m1, y1, d2, m2, y2;
-    int valid1 = 0, valid2 = 0;
 
-    while (valid1 != 1 || valid2 != 1) {
-        
-        while (valid1 != 1) {
-
-            scanf("%d", &d1);
-            scanf(" %d", &m1);
-            scanf(" %d", &y1);
-            if (isValidDate(d1, m1, y1) == 0) {
-                printf("Tanggal tidak valid\n");
-            } else {
-                valid1 = 1;
-            }
-            
-        }   
-        
-        while (valid2 != 1) {
-            scanf("%d", &d2);
-            scanf(" %d", &m2);
-            scanf(" %d", &y2);
-            
-            if (isValidDate(d2, m2, y2) == 0) {
-                printf("Tanggal tidak valid\n");
-            } else {
-                valid2 = 1;
-            }
+    do {
+        scanf("%d %d %d", &d1, &m1, &y1);
+        if (isValidDate(d1, m1, y1) == 0) {
+            printf("Tanggal tidak valid\n");
         }
+    } while (isValidDate(d1, m1, y1) == 0);
 
-        long long daysDifference = dateDifference(d1, m1, y1, d2, m2, y2);
-
-        while (daysDifference < 0) {
+    do {
+        scanf("%d %d %d", &d2, &m2, &y2);
+        if (isValidDate(d2, m2, y2) == 0) {
+            printf("Tanggal tidak valid\n");
+        } else if (dateDifference(d1, m1, y1, d2, m2, y2) < 0) {
             printf("Tanggal kedua lebih dulu\n");
-
-            scanf("%d", &d2);
-            scanf(" %d", &m2);
-            scanf(" %d", &y2);
-
-
-            if (isValidDate(d2, m2, y2) == 0) { 
-                printf("Tanggal tidak valid\n");
-            } else {
-                valid2 = 1;
-            }
-
-            daysDifference = dateDifference(d1, m1, y1, d2, m2, y2);
         }
+    } while ((isValidDate(d2, m2, y2) == 0 || dateDifference(d1, m1, y1, d2, m2, y2) < 0));
 
-        printf("%lld\n", daysDifference);
-    }
+    printf("%d\n", dateDifference(d1, m1, y1, d2, m2, y2));
+    
     return 0;
 }
+
+// Terimakasih Endra sudah membuat int main() yang berfungsi hehe :)
