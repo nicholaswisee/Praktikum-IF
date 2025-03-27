@@ -5,7 +5,7 @@ void sort(int arr[] , int n){
     int temp;
     //izin bubble sort ketua!
     for (int i = 0 ; i<n; i++){
-        for (int i = 0 ; i <n -1 ; i++) {
+        for (int i = 0 ; i < n - 1 ; i++) {
             if (arr[i] > arr[i+1]){
                 temp = arr[i];
                 arr[i] = arr[i+1];
@@ -27,7 +27,7 @@ int find(int arr[], int n, int target){
 }
 
 double calculateAverage(int arr[], int n){
-    int sum = 0;
+    double sum = 0;
     for (int i = 0; i < n; i++) {
         sum += arr[i];
     }
@@ -77,24 +77,24 @@ int findMax(int arr[], int n){
 
 int findMin(int arr[], int n){
     int min = arr[0];
-    for (int i =0 ;i <n ; i++){
+    for (int i =0; i < n; i++){
         if (arr[i] < min) {
             min = arr[i];
         }
     }
-    
+
     return min;
 }
 
 void reverseArray(int arr[], int n){
-    int kiri =0 , kanan = n-1;
+    int kiri = 0, kanan = n-1;
 
     while (kiri < kanan){
         int temp = arr [kiri];
         arr[kiri] = arr[kanan] ;
         arr[kanan] = temp;
 
-        kiri++ ; 
+        kiri++; 
         kanan-- ; 
     }
 }
