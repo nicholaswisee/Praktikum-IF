@@ -12,8 +12,16 @@ int main() {
         while (Temp < T[i] && i >= 0) {
             T[i+1] = T[i];
             i--;
+    
+            printf("[ ");
+            for (int i = 0; i < 6; i++) {
+                printf("%d ", T[i]);
+            }
+        
+            printf("]");
+            printf("\n");
         }
-
+        
         T[i+1] = Temp;
     
         printf("[ ");
@@ -22,6 +30,7 @@ int main() {
         }
     
         printf("]");
+        printf("\n");
         printf("\n");
     }
 
