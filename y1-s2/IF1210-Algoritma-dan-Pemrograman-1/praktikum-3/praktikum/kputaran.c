@@ -40,7 +40,6 @@ int main() {
 
         }
 
-
         for (int z = 0; z < N; z++) {
             printf("%d", output[z]);
             if (z < N - 1) printf(" ");

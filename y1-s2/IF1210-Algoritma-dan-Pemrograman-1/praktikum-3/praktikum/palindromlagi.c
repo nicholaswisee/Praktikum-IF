@@ -1,5 +1,8 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
+
+#define MAX_SIZE 1001
 
 int countInstances(char* arr, char find, int len) {
     int count = 0;
@@ -12,29 +15,23 @@ int countInstances(char* arr, char find, int len) {
 }
 
 int main() {
-    char s[1001];
+    char s[MAX_SIZE];
     scanf("%s", s);
     int len = strlen(s);
-    int oddcount = 0;
-    int checked[1001] = {0}; 
+
+    int freq[256] = {0}; 
 
     for (int i = 0; i < len; i++) {
-        if (checked[i] == 1) continue; 
-        
-        char searched = s[i];
-        int count = countInstances(s, searched, len);
-        checked[i] = 1;
-        
-        for (int j = i + 1; j < len; j++) {
-            if (s[j] == searched) {
-                checked[j] = 1;
-            }
-        }
-
-        if (count % 2 != 0) {
-            oddcount += 1;
-        }
+        freq[(unsigned char)s[i]]++;
     }
+    
+
+    int oddcount = 0;
+    for (int i = 0; i < 256; i++) {
+        if (freq[i] % 2 != 0) {
+        oddcount++;
+    }
+}
 
     if (oddcount <= 1) {
         printf("YES\n");
