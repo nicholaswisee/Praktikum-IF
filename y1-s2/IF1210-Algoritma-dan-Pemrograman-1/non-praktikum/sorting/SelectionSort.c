@@ -11,7 +11,7 @@ int main() {
 
         for (int Pass = i + 1; Pass < 6; Pass++) {
             if (T[Pass] < T[iMin]) {
-                iMin = Pass;
+                iMin = Pass;    
             }
         }
 
