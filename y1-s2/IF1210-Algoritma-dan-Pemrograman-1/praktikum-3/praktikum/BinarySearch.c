@@ -17,7 +17,9 @@ int binarySearch(int arr[], int left, int right, int target) {
             left = middle + 1;  
         }
     }
-    return result;  // Target not found
+
+    
+    return result;
 }
 
 int main() {
