@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "tester.h"
+// #include "tester.h"
 
 /* Tulis kode disini jika perlu */
 
 int main() {
-    init();
+    // init();
 
 
     FILE * file = fopen("input.txt", "r");

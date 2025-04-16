@@ -1,8 +1,8 @@
 #include <stdio.h>
-#include "tester.h" 
+// #include "tester.h" 
 
 int main () {
-    init(); // Comment this when developing in local
+    // init(); // Comment this when developing in local
     FILE * file_a = fopen("file_a.txt", "r");
     FILE * file_b = fopen("file_b.txt", "r");
 
