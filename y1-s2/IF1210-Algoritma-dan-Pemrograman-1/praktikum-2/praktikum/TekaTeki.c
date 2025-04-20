@@ -34,7 +34,6 @@ long long kombinasi(int n, int k) {
         }
         
     }
-    
 
     long long comb = top / bottom;
 
