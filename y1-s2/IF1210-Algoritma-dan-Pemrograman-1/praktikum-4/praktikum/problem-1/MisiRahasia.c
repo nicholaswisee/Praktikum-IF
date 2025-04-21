@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
-// #include "tester.h"
+// #include "tester.h" //comment to run locally
 
 /* Tulis kode disini jika perlu */
 
 int main() {
-    // init();
+    // init(); //comment to run locally
 
 
     FILE * file = fopen("input.txt", "r");
@@ -25,7 +25,7 @@ int main() {
         } 
    
     }
-
+    
     fclose(file);
     printf("Total Misi: %d\n", last_id);
     printf("Misi Berhasil: %d\n", total_success);

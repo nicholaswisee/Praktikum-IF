@@ -103,6 +103,7 @@ void parseStudentData(char *line, Nimon *nimon) {
     char *token;
     int i = 0;
     int int_nilai;
+    
     //Ambil NIM
     token = strtok(line, "|");
     strcpy(nimon->nim, token);
