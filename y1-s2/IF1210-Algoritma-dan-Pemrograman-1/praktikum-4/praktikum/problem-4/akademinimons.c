@@ -196,11 +196,11 @@ void writeStudentResult(Nimon *nimon) {
  */
 void writeSummary(Nimon *nimons, int nimonCount) {
     int jumlahLulus = 0;
-    int indexTertinggi;
-    float avgTertinggi = 0;
+    int indexTertinggi = 0;
+    float avgTertinggi = -1;
 
     for (int i = 0; i < nimonCount; i++) {
-        if (strcmp(nimons[i].status, "PASS")) {
+        if (strcmp(nimons[i].status, "PASS") == 0) {
             jumlahLulus++;
         }
         if (nimons[i].average > avgTertinggi) {
@@ -235,7 +235,7 @@ int run(char *inputFileName){
         return 1;
     }
 
-    Nimon nimons_list[MAX_IO_LENGTH];
+    Nimon nimons_list[MAX_NIMONS];
     char line[MAX_LINE_LENGTH];
     int count = 0;
 
@@ -254,6 +254,4 @@ int run(char *inputFileName){
     writeSummary(nimons_list, count);
 
     return 0;
-    
-
 }
