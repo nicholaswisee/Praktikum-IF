@@ -103,7 +103,6 @@ void parseStudentData(char *line, Nimon *nimon) {
     char *token;
     int i = 0;
     int int_nilai;
-    
     //Ambil NIM
     token = strtok(line, "|");
     strcpy(nimon->nim, token);
@@ -177,7 +176,7 @@ void calculateStatistics(Nimon *nimon) {
  *
  */
 void writeStudentResult(Nimon *nimon) {
-    printf("%s|%s|%.2f|%d|%d|%s\n", nimon->nim, nimon->name, nimon-> average);
+    printf("%s|%s|%.2f|%d|%d|%s\n", nimon->nim, nimon->name, nimon->average, nimon->highest, nimon->lowest, nimon->status);
 }
 
 /**
