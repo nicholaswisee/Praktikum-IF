@@ -2,36 +2,82 @@
 #include <stdlib.h>
 // #include "tester.h"
 
+#define MAX_MISSION 1000
+
+
 /* Tulis kode disini jika perlu */
+typedef struct {
+    int nimonId;
+    int success;
+    int missionValue;
+} Mission;
+
+
+int bubbleSortChecker(Mission *a, Mission *b) {
+    if (a->success != b->success) {
+        if (a->success <= b->success) {
+            return 0;
+        } else {
+            return 1;
+        }
+    }
+    if (a->missionValue != b->missionValue) {
+        if (a->missionValue <= b->missionValue) {
+            return 0;
+        } else {
+            return 1;
+        }
+    }
+    if (a->nimonId != b->nimonId) {
+        if (a->nimonId <= b->nimonId) {
+            return 0;
+        } else {
+            return 1;
+        }
+    }
+}
 
 int main() {
     // init();
 
 
-    FILE * file = fopen("input.txt", "r");
+    FILE * input = fopen("input.txt", "r");
+    FILE * query = fopen("query.txt", "r");
 
-    int nimon_id = 1, success, mission_value = 1;
-    int last_id = 0, total_success = 0, total_value = 0;
-    int line = 0;
-    int arr[1000] = {0};
+    Mission missionsArr[MAX_MISSION];
+    Mission Temp;
+    int i = 0;
 
-    while ((nimon_id >= 1) && (nimon_id <= 1000) && (mission_value >= 0) && (mission_value <= 1000)) {
-        fscanf(file, "%d %d %d", &nimon_id, &success, &mission_value); 
-        if (nimon_id == -1) break;
-
-        last_id++  ;
-
-        if (success == 1) { 
-            total_value += mission_value;
-            total_success += 1;
-        } 
-   
+    while (i < MAX_MISSION && fscanf(input, "%d %d %d", &missionsArr[i].nimonId, &missionsArr[i].success, &missionsArr[i].missionValue) == 3) {
+        if (missionsArr[i].nimonId == -1 && missionsArr[i].success == 0 && missionsArr[i].missionValue == 0) {
+            break;
+        }
+        i++;
     }
 
-    fclose(file);
-    printf("Total Misi: %d\n", last_id);
-    printf("Misi Berhasil: %d\n", total_success);
-    printf("Total Nilai Misi: %d\n", total_value);
+    for (int j = 0; j < i - 1; j++) {
+        for (int k = 0; k < i - j - 1; k++) {
+            if (bubbleSortChecker(&missionsArr[k], &missionsArr[k + 1]) == 1) {
+                Temp = missionsArr[k];
+                missionsArr[k] = missionsArr[k+1];
+                missionsArr[k+1] = Temp;
+            }
+
+        }
+    }
+
+    int count;
+    
+    fscanf(query, "%d", &count);
+
+    int index;
+    for (int c = 0; c < count; c++) {
+        fscanf(query, "%d", &index);
+        printf("%d %d\n", missionsArr[index -1].nimonId, missionsArr[index - 1].missionValue);        
+    }
+    
+    fclose(input);
+    fclose(query);
     /* Tulis kode dibawa ini */
     // TODO: baca file input.txt
     // TODO: tulis kode untuk algoritma utama
