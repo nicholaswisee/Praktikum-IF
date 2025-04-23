@@ -3,9 +3,6 @@
 #include "point.h"
 #include <math.h>
 
-#define PAwal(L) (L).PAw
-#define PAkhir(L) (L).PAkh
-        
 /* ***************************************************************** */
 /* DEFINISI PRIMITIF                                                 */ 
 /* ***************************************************************** */
@@ -29,13 +26,12 @@ void BacaLINE (LINE * L) {
         BacaPOINT(&P1);
         BacaPOINT(&P2);
 
-        if (EQ(P1, P2) == 1 ) {
+        if (EQ(P1, P2) == true) {
             printf("Invalid Line\n");
         }
 
-    } while (EQ(P1, P2) == 1);
+    } while (EQ(P1, P2) == true);
     CreateLine(L, P1, P2);
-
 }
 /* I.S. sembarang */
 /* F.S. L terdefinisi sebagai LINE yang valid */
@@ -53,9 +49,11 @@ void BacaLINE (LINE * L) {
    --> terbentuk line L dengan L.PAw = <2,3> dan L.PAkh = <3,3> */
 
 void TulisLINE (LINE L) {
+    printf("(");
     TulisPOINT(PAwal(L));
     printf(",");
     TulisPOINT(PAkhir(L));
+    printf(")");
 }
 /* I.S. L terdefinisi */
 /* F.S. L tertulis di layar dengan format "((x1,y1),(x2,y2))" 
