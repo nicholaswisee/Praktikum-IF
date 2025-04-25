@@ -2,20 +2,24 @@
 
 ## Daftar Praktikum
 
-| No  | Praktikum                                           |
-| --- | --------------------------------------------------- |
-| 0   | [Pengenalan Praktikum](./praktikum-0/)              |
-| 1   | [Pemorsesan Sekuensial (Loop)](./praktikum-1/)      |
-| 2   | [Fungsi/Prosedur](./praktikum-2/)                   |
-| 3   | [Pemrosesan Sekuensial untuk Array](./praktikum-3/) |
-| 4   | [File External (File I/O)](./praktikum-4/)          |
-| 5   | [ADT Sederhana](./praktikum-5/)                     |
+| No  | Praktikum                                                   |
+| --- | ----------------------------------------------------------- |
+| 0   | [Pengenalan Praktikum](./praktikum-0/)                      |
+| 1   | [Pemorsesan Sekuensial (Loop)](./praktikum-1/)              |
+| 2   | [Fungsi/Prosedur](./praktikum-2/)                           |
+| 3   | [Pemrosesan Sekuensial untuk Array](./praktikum-3/)         |
+| 4   | [File External (File I/O)](./praktikum-4/)                  |
+| 5   | [ADT (<i>Abstract Data Type</i>) Sederhana](./praktikum-5/) |
+
+## Deskripsi
+
+Praktikum Alpro 1 yang dinantikan tiap minggu itu :) Sebelum praktikum, terdapat sesi pra-praktikum sebagai perkenalan materi. Bahasa yang digunakan adalah C.
 
 ### Rekan-rekan yang telah membantu dalam mengarsip:
 
 Samuelson Dharmawan (13524001)</br>
 Narendra Dharma (13524044) </br>
 Aufa Rienaldifaza (13524027)</br>
-Kurt Mihael (13524065)</br>
+Kurt Mikhael (13524065)
 
-by Nicholas Wise Saragih Sumbayak (13524037)
+## by Nicholas Wise Saragih Sumbayak (13524037)
