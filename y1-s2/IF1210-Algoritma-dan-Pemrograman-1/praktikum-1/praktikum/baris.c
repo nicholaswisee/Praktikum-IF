@@ -41,5 +41,3 @@ int main() {
     
     return 0;
 }
-
-//terimakasih claude.ai kamu sangat hebat!
