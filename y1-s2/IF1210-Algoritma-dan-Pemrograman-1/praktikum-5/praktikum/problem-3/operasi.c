@@ -133,7 +133,7 @@ void PrintLokasi(Lokasi l) {
 /* Format: "Lokasi: (x, y)" */
 
 void PrintPasien(Pasien p) {
-    printf("%s\n", p.nama);
+    printf("Nama: %s\n", p.nama);
     PrintVital(p.v);
     PrintLokasi(p.l);
 }
