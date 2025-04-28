@@ -9,7 +9,7 @@
 | 2   | [Fungsi/Prosedur](./praktikum-2/)                      |
 | 3   | [Pemrosesan Sekuensial untuk Array](./praktikum-3/)    |
 | 4   | [File External (File I/O)](./praktikum-4/)             |
-| 5   | [ADT (_Abstract Data Type_) Sederhana](./praktikum-5/) |
+| 5   | [ADT _(Abstract Data Type)_ Sederhana](./praktikum-5/) |
 
 ## Deskripsi
 
@@ -21,6 +21,8 @@ Credits to: </br>
 Samuelson Dharmawan (13524001)</br>
 Narendra Dharma (13524044) </br>
 Aufa Rienaldifaza (13524027)</br>
-Kurt Mikhael (13524065)
+Kurt Mikhael (13524065) </br>
+
+yang telah berkontribusi untuk repositori ini!
 
 ## by Nicholas Wise Saragih Sumbayak (13524037)
