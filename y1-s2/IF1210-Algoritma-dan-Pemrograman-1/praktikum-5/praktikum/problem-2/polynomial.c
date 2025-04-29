@@ -13,8 +13,6 @@ void CreatePolynomial(Polynomial *p) {
  * dan degree juga diinisialisasi dengan 0
  */
 
-
-//  halo halo halo
 void CreatePolynomialFromArray(Polynomial *p, int coeffArray[], int size) {
     CreatePolynomial(p);
 
@@ -23,7 +21,7 @@ void CreatePolynomialFromArray(Polynomial *p, int coeffArray[], int size) {
     }
 
     for (int i = size - 1; i >= 0; i--) {
-        if (coeffArray[i] != 0) {
+        if (p->coeff[i] != 0) {
             p->degree = i;
             return;
         }
@@ -55,13 +53,8 @@ int GetDegree(Polynomial *p) {
 
 int Evaluate(Polynomial *p, int x) {
     int totalSum = 0;
-    int currentPower = 1;
-
-    totalSum += p->coeff[0];
-
-    for (int i = 1; i <= p->degree; i++) {
-        currentPower *= x;
-        totalSum += p->coeff[i] * currentPower;
+    for (int i = 0; i <= p->degree; i++) {
+        totalSum += p->coeff[i] * pow(x, i);
     }
     return totalSum;
 }
@@ -74,6 +67,8 @@ int Evaluate(Polynomial *p, int x) {
 
 /* Mutator */
 void SetCoefficient(Polynomial *p, int exponent, int coefficient) {
+    if (exponent < 0 || exponent > MAX_DEGREE) return;
+
     p->coeff[exponent] = coefficient;
     if (exponent > p->degree && coefficient != 0) {
         p->degree = exponent;
@@ -98,20 +93,17 @@ void ReadPolynomial(Polynomial *p) {
     do {
         scanf("%d", &size);
     } while (size < 0 || size > MAX_DEGREE);
-    p->degree = size;
 
-    for (int i = 0; i <= size; i++) {
+    for (int i = 0; i < size; i++) {
         scanf("%d", &p->coeff[i]);
     }
 
-    int highestIndex = -1;
-    for (int i = size; i >= 0; i--) {
+    for (int i = size - 1; i >= 0; i--) {
         if (p->coeff[i] != 0) {
-            highestIndex = i;
+            p->degree = i;
             break;
         }
     }
-    p->degree = highestIndex == -1 ? 0 : highestIndex;
 } 
 /**
  * I.S. Polynomial p belum terdefinisi
@@ -122,6 +114,7 @@ void ReadPolynomial(Polynomial *p) {
 
 /* Operator Aritmatika */
 void AddPolynomials(Polynomial *p1, Polynomial *p2, Polynomial *result) {
+    CreatePolynomial(result);
     result->degree = GetDegree(p1) >= GetDegree(p2) ? p1->degree : p2->degree; 
     
     for (int i = 0; i <= result->degree; i++) {
@@ -138,6 +131,7 @@ void AddPolynomials(Polynomial *p1, Polynomial *p2, Polynomial *result) {
  */
 
 void SubtractPolynomials(Polynomial *p1, Polynomial *p2, Polynomial *result) {
+    CreatePolynomial(result);
     result->degree = GetDegree(p1) >= GetDegree(p2) ? p1->degree : p2->degree; 
     
     for (int i = 0; i <= result->degree; i++) {
@@ -174,7 +168,7 @@ int IsEqual(Polynomial *p1, Polynomial *p2) {
 /* Operasi Lain */
 void PrintPolynomial(Polynomial *p) {
     int first = 1;
-    for (int i = p->coeff[p->degree]; i >= 0; i--) {
+    for (int i = p->degree; i >= 0; i--) {
         if (p->coeff[i] == 0) continue;
         
         if (!first) {

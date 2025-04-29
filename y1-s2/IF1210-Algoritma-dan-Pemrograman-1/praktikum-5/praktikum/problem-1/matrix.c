@@ -6,7 +6,7 @@ void CreateMatrix(int rows, int cols, Matrix *M) {
     M->cols = cols;
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
-            M->data[i][j] = 0;
+            M->data[i][j] = 0;  
         }
     }
 }
@@ -48,7 +48,7 @@ void ReadMatrix(Matrix *M) {
 
     do {
         scanf("%d %d", &rows, &cols);
-    } while (rows < 0 || rows >= MAX_ROWS || cols < 0 || cols >= MAX_COLS);
+    } while (rows <= 0 || rows >= MAX_ROWS || cols <= 0 || cols >= MAX_COLS);
 
 
     CreateMatrix(rows, cols, M);
