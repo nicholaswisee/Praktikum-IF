@@ -2,14 +2,15 @@
 
 ## Daftar Praktikum
 
-| No  | Praktikum                                              |
-| --- | ------------------------------------------------------ |
-| 0   | [Pengenalan Praktikum](./praktikum-0/)                 |
-| 1   | [Pemorsesan Sekuensial (Loop)](./praktikum-1/)         |
-| 2   | [Fungsi/Prosedur](./praktikum-2/)                      |
-| 3   | [Pemrosesan Sekuensial untuk Array](./praktikum-3/)    |
-| 4   | [File External (File I/O)](./praktikum-4/)             |
-| 5   | [ADT _(Abstract Data Type)_ Sederhana](./praktikum-5/) |
+| No  | Praktikum                                                            |
+| --- | -------------------------------------------------------------------- |
+| 0   | [Pengenalan Praktikum](./praktikum-0/)                               |
+| 1   | [Pemorsesan Sekuensial (Loop)](./praktikum-1/)                       |
+| 2   | [Fungsi/Prosedur](./praktikum-2/)                                    |
+| 3   | [Pemrosesan Sekuensial untuk Array](./praktikum-3/)                  |
+| 4   | [File External (File I/O)](./praktikum-4/)                           |
+| 5   | [ADT _(Abstract Data Type)_ Sederhana](./praktikum-5/)               |
+| 6   | [ADT _(Abstract Data Type)_ List Statis dan Dinamis](./praktikum-6/) |
 
 ## Deskripsi
 
