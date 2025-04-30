@@ -19,8 +19,8 @@ void CreateListStatik(ListStatik *l) {
 int listLength(ListStatik l) {
     int len = 0;
     for (int i = 0; i < CAPACITY; i++) {
-        if (ELMT(l, i) != MARK) len++;
         if (ELMT(l, i) == MARK) return len;
+        len++;
     }
     return len;
 }
@@ -57,15 +57,12 @@ boolean isIdxEff(ListStatik l, IdxType i) {
 /* ********** TEST KOSONG/PENUH ********** */
 /* *** Test List kosong *** */
 boolean isEmpty(ListStatik l) {
-    for (IdxType i = 0; i < CAPACITY; i++) {
-        if (ELMT(l, i) != MARK) return false;
-    }
-    return true;
+    return (ELMT(l, 0) == MARK);
 }
 /* Mengirimkan true jika List l kosong, mengirimkan false jika tidak */
 /* *** Test List penuh *** */
 boolean isFull(ListStatik l) {
-    return (listLength(l) >= CAPACITY) ? true : false;
+    return (listLength(l) == CAPACITY) ? true : false;
 }
 /* Mengirimkan true jika List l penuh, mengirimkan false jika tidak */
 
@@ -115,10 +112,16 @@ void printList(ListStatik l) {
 /* *** Aritmatika List : Penjumlahan, pengurangan, perkalian, ... *** */
 ListStatik plusMinusList(ListStatik l1, ListStatik l2, boolean plus) {
     ListStatik result;
+    ElType res;
     CreateListStatik(&result);
     for (int i = getFirstIdx(l1); i <= getLastIdx(l2); i++) {
-        if (plus) result.contents[i] = l1.contents[i] + l2.contents[i];
-        else result.contents[i] = l1.contents[i] - l2.contents[i];
+        if (plus) res = l1.contents[i] + l2.contents[i];
+        else res = l1.contents[i] - l2.contents[i];
+        if (res == MARK) {
+            // Optional: set result to a safe placeholder or raise error
+            res = MARK + 1; // E.g., if MARK is -9999, use -9998
+        }
+        result.contents[i] = res;
     }
     return result;
 }
@@ -199,7 +202,8 @@ void insertAt(ListStatik *l, ElType val, IdxType idx) {
 /* *** Menambahkan elemen terakhir *** */
 void insertLast(ListStatik *l, ElType val) {
     if (isFull(*l)) return;
-    l->contents[getLastIdx(*l) + 1] = val; 
+    l->contents[listLength(*l)] = val; 
+    l->contents[listLength(*l) + 1] = MARK; 
 }
 /* Proses: Menambahkan val sebagai elemen terakhir List */
 /* I.S. List l boleh kosong, tetapi tidak penuh */
