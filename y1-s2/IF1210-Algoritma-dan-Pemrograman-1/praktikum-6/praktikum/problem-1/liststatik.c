@@ -1,5 +1,6 @@
 #include "liststatik.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include "Boolean.h"
 
 #define true 1
@@ -98,7 +99,6 @@ void printList(ListStatik l) {
         if (i < listLength(l) - 1) printf(",");
     }
     printf("]");
-    printf("\n");
 }
 /* Proses : Menuliskan isi List dengan traversal, List ditulis di antara kurung 
    siku; antara dua elemen dipisahkan dengan separator "koma", tanpa tambahan 

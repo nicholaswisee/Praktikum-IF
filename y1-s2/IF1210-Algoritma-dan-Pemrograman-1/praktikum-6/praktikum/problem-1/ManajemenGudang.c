@@ -1,10 +1,11 @@
 #include "liststatik.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 int main() {
     ListStatik Gudang;
     CreateListStatik(&Gudang);
-    int N = 0;
+    int N;
     int berat, idx;
 
     while (N != -1) {
@@ -12,30 +13,34 @@ int main() {
         switch(N) {
             case 1: {
                 scanf("%d %d", &berat, &idx);
-                if (!isIdxValid(Gudang, idx) || isFull(Gudang)) {
+                if (idx < 0 || idx > listLength(Gudang) || isFull(Gudang)) {
                     printf("Aw, gabisa ngelakuin aksi itu\n");
                     printList(Gudang);
                     printf("\n");
-                    continue;
+
+                    break;
                 } else {  
                     insertAt(&Gudang, berat, idx);
                     printList(Gudang);
                     printf("\n");
+
                     break;
                 }
             } 
             case 0: {
                 scanf("%d", &idx);
-                if (!isIdxEff(Gudang, idx)) {
+                if (!isIdxEff(Gudang, idx) || isEmpty(Gudang)) {
                     printf("Aw, gabisa ngelakuin aksi itu\n");
                     printList(Gudang);
                     printf("\n");
 
-                    continue;
+
+                    break;
                 } else {
                     deleteAt(&Gudang, &berat, idx);  
-                    printList(Gudang); 
+                    printList(Gudang);
                     printf("\n");
+
                     break;
                 }
             }
@@ -46,6 +51,7 @@ int main() {
                 printf("Aw, gabisa ngelakuin aksi itu\n");
                 printList(Gudang);
                 printf("\n");
+
                 break;
             }
         }
