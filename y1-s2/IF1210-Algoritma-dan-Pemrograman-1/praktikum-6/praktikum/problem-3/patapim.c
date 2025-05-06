@@ -10,57 +10,25 @@ int GCD(int a, int b) {
     }
 }
 
-int findGCD(ListDin L) {
-
-    if (L.nEff <= 1) {
-        return 0; 
-    }
-    
-    int result = 0;
-    int found = 0;
-    
-    for (int i = 0; i < L.nEff - 1 && !found; i++) {
-        for (int j = i + 1; j < L.nEff && !found; j++) {
-            int diff = abs(L.buffer[i] - L.buffer[j]);
-            if (diff > 0) {
-                result = diff;
-                found = 1;
-            }
-        }
-    }
-    
-    if (!found) {
-        return 0;
-    }
-    
-    for (int i = 0; i < L.nEff; i++) {
-        for (int j = i + 1; j < L.nEff; j++) {
-            int diff = abs(L.buffer[i] - L.buffer[j]);
-            if (diff > 0) {
-                result = GCD(result, diff);
-    
-                if (result == 1) {
-                    return 1;
-                }
-            }
-        }
-    }
-    
-    return result;
-}
-
 int main() {
     ListDin L;
-    int initialCapacity = 100000;
-    CreateListDin(&L, initialCapacity);
-    
+    CreateListDin(&L, 100000);
+    int result, min, max;
+
     readList(&L);
-    
-    int result = findGCD(L);
-    
+    compressList(&L);
+
+    extremeValues(L, &max, &min);
+
+    result = L.buffer[0] - min;
+    for (int i = 1; i < L.nEff; i++) {
+        if (L.buffer[i] != min) {
+            result = GCD(L.buffer[i] - min, result);
+        }
+    }
+
+    dealocateList(&L); 
     printf("%d\n", result);
-    
-    dealocateList(&L);
-    
+
     return 0;
 }
