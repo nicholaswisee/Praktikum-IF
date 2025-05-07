@@ -11,6 +11,7 @@
 | 4   | [File External (File I/O)](./praktikum-4/)                           |
 | 5   | [ADT _(Abstract Data Type)_ Sederhana](./praktikum-5/)               |
 | 6   | [ADT _(Abstract Data Type)_ List Statis dan Dinamis](./praktikum-6/) |
+| 6   | [ADT _(Abstract Data Type)_ List Kontinu](./praktikum-6/)            |
 
 ## Deskripsi
 

@@ -98,7 +98,6 @@ void printList(ListStatik l) {
         if (i < listLength(l) - 1) printf(",");
     }
     printf("]");
-    printf("\n");
 }
 /* Proses : Menuliskan isi List dengan traversal, List ditulis di antara kurung 
    siku; antara dua elemen dipisahkan dengan separator "koma", tanpa tambahan 
