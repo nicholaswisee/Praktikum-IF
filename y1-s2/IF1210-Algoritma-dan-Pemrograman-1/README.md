@@ -11,15 +11,14 @@
 | 4   | [File External (File I/O)](./praktikum-4/)                           |
 | 5   | [ADT _(Abstract Data Type)_ Sederhana](./praktikum-5/)               |
 | 6   | [ADT _(Abstract Data Type)_ List Statis dan Dinamis](./praktikum-6/) |
-| 6   | [ADT _(Abstract Data Type)_ List Kontinu](./praktikum-6/)            |
+| 7   | [ADT _(Abstract Data Type)_ List Kontinu](./praktikum-7/)            |
 
 ## Deskripsi
 
 Praktikum Alpro 1 yang dinantikan tiap minggu itu :) Sebelum praktikum, terdapat sesi pra-praktikum sebagai perkenalan materi. Bahasa yang digunakan adalah C.
 
-### Special Thanks
+### Special Thanks to
 
-Credits to: </br>
 Samuelson Dharmawan (13524001)</br>
 Narendra Dharma (13524044) </br>
 Aufa Rienaldifaza (13524027)</br>
