@@ -20,8 +20,10 @@ int main() {
             if (j != i && ELMT(m, i, j) == 1) {
                 brity = FALSE;
             }
+
             if (brity == FALSE) break;
         }
+        
         if (brity == FALSE) continue;
         
         for (int k = 0; k < N; k++) {

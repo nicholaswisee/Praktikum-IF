@@ -3,7 +3,6 @@
 #include "Boolean.h"
 
 int main() {
-
     int N, M, K, X;
     Matrix m, subM;
     int sum, count = 0;
@@ -16,12 +15,14 @@ int main() {
             createMatrix(K, K, &subM);
             int curRow = 0, curCol = 0;
             sum = 0;
+
             for (int k = 0; k < K; k++) {
                 for (int l = 0; l < K; l++) {
                     subM.mem[k][l] = m.mem[k + i][l + j];
                     sum += m.mem[k + i][l + j];
                 }
             }
+
             if (sum <= X) count++;
         }
     }

@@ -17,6 +17,7 @@ int main() {
         for (int j = 0; j < K; j++) {
             RTrue = TRUE;
             KTrue = TRUE;
+            
             for (int k = 0; k < K; k++) {
                 if (ELMT(m, i, j) > ELMT(m, i, k)) {
                     KTrue = FALSE;
