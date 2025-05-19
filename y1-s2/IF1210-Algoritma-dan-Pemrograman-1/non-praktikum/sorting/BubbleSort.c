@@ -10,7 +10,7 @@ int main() {
         for (int j = 0; j < N - i; j++) {
             if (T[j] > T[j+1]) {
                 Temp = T[j];
-                T[j] = T[j+1];
+                T[j] = T[j+1];  
                 T[j+1] = Temp;
             }
         }

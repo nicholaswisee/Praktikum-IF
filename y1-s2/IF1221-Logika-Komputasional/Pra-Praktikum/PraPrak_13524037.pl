@@ -94,7 +94,7 @@ saudara(X, Y) :-
 
 saudaratiri(X, Y) :- 
     anak(X, A), 
-    anak(Y, B),
+    anak(Y, B), 
     anak(X, Z),
     anak(Y, Z),
     A \= B,
@@ -260,7 +260,7 @@ count([_|T], Count):- count(T, C1), Count is C1 + 1.
 
 % 1e. Sum
 sum([], 0) :- !.
-sum([H|T], Sum) :- sum(T, SumT), Sum is H + SumT.
+sum([H|T], Sum) :- sum(T, SumT), Sum is H + SumT.   
 
 /* 2. List Manipulation */
 % 2a. MergeSort
@@ -286,7 +286,7 @@ filterArray([], _, _, []).
 filterArray([H|T], Element1, Element2, [H|Result]) :-
     H > Element1,
     H mod Element2 =:= 0,
-    filterArray(T, Element1, Element2, Result).
+    filterArray(T, Element1, Element2, Result). 
 
 filterArray([_|T], Element1, Element2, Result) :-
     filterArray(T, Element1, Element2, Result).

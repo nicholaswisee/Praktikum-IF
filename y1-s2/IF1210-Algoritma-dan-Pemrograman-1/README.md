@@ -1,5 +1,9 @@
 # IF1210 Algortima dan Pemrograman 1
 
+## Deskripsi
+
+Praktikum Alpro 1 yang dinantikan tiap minggu itu :) Sebelum praktikum, terdapat sesi pra-praktikum sebagai perkenalan materi. Bahasa yang digunakan adalah C.
+
 ## Daftar Praktikum
 
 | No  | Praktikum                                                            |
@@ -13,10 +17,7 @@
 | 6   | [ADT _(Abstract Data Type)_ List Statis dan Dinamis](./praktikum-6/) |
 | 7   | [ADT _(Abstract Data Type)_ List Kontinu](./praktikum-7/)            |
 | 8   | [ADT _(Abstract Data Type)_ Matrix](./praktikum-8/)                  |
-
-## Deskripsi
-
-Praktikum Alpro 1 yang dinantikan tiap minggu itu :) Sebelum praktikum, terdapat sesi pra-praktikum sebagai perkenalan materi. Bahasa yang digunakan adalah C.
+| 9   | [ADT _(Abstract Data Type)_ Queue & Stack](./praktikum-9/)           |
 
 ### Special Thanks to
 
