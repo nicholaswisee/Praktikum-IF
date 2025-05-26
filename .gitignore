@@ -1,7 +1,18 @@
+# Ignore all
+*
+
+# Unignore all with extensions
+!*.*
+
+# Unignore all dirs
+!*/
+
 *.exe
 *.json
 *.zip
 *.txt
+
+
 kit/
 belajar-manual/
 non-praktikum/
