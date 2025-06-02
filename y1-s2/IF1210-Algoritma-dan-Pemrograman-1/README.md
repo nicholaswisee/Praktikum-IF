@@ -18,6 +18,7 @@ Praktikum Alpro 1 yang dinantikan tiap minggu itu :) Sebelum praktikum, terdapat
 | 7   | [ADT _(Abstract Data Type)_ List Kontinu](./praktikum-7/)            |
 | 8   | [ADT _(Abstract Data Type)_ Matrix](./praktikum-8/)                  |
 | 9   | [ADT _(Abstract Data Type)_ Queue & Stack](./praktikum-9/)           |
+| 10  | [ADT _(Abstract Data Type)_ Linked List](./praktikum-10/)           |
 
 ### Special Thanks to
 
