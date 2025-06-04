@@ -27,12 +27,13 @@ boolean isEmpty(List l) {
 
 /****************** GETTER SETTER ******************/
 ElType getElmt(List l, int idx) {
+    Address p = l;
     int i = 0;
     while (i < idx) {
-        l = l->next;
+        p = p->next;
         i++;
     }
-    return l->info;
+    return p->info;
 }
 /* I.S. l terdefinisi, idx indeks yang valid dalam l, yaitu 0..length(l) */
 /* F.S. Mengembalikan nilai elemen l pada indeks idx */
@@ -51,9 +52,11 @@ void setElmt(List *l, int idx, ElType val) {
 
 int indexOf(List l, ElType val) {
     int i = 0;
-    while (l != NULL) {
-        if (l->info == val) return i;
-        l = l->next;
+    Address p = l;
+
+    while (p != NULL) {
+        if (p ->info == val) return i;
+        p = p ->next;
         i++;
     }
 
@@ -90,6 +93,7 @@ void insertLast(List *l, ElType val) {
     while (current->next != NULL) {
         current = current->next;
     }
+    
     current->next = newElmt;
 }
 /* I.S. l mungkin kosong */
@@ -210,14 +214,20 @@ List concat(List l1, List l2) {
     if (l1 == NULL) return l2;
     if (l2 == NULL) return l1;
 
-    List newList = l1;
-    Address lastNode = l1;
+    List newList;
+    CreateList(&newList);
+    Address temp = l1;
     
-    while (lastNode->next != NULL) {
-        lastNode = lastNode->next;
+    while (temp != NULL) {
+        insertLast(&newList, temp->info);
+        temp = temp->next;
+    }
+    temp = l2;
+    while (temp != NULL) {
+        insertLast(&newList, temp->info);
+        temp = temp->next;
     }
 
-    lastNode->next = l2;
     return newList;
 }
 /* I.S. l1 dan l2 sembarang */
