@@ -1,6 +1,6 @@
 #include "moveon.h"
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 /*
  * Fungsi : removeAll
@@ -18,7 +18,8 @@
  *      - Node yang dihapus berada di awal list
  *      - Node yang dihapus berada di tengah list
  *      - Node yang dihapus berada di akhir list
- *  - Setelah node dihapus, memori dari node tersebut harus di-dealokasi (menggunakan free).
+ *  - Setelah node dihapus, memori dari node tersebut harus di-dealokasi
+ * (menggunakan free).
  *
  * Aturan:
  *  - Tidak boleh menggunakan array tambahan, struktur data lain, atau rekursi.
@@ -30,38 +31,28 @@
  *    maka setelah removeAll(&l, 2), list menjadi [1, 3, 4]
  */
 void removeAll(List *l, ElType val) {
-    int idx = 0;
     ElType temp;
     Address current = *l;
-
+    Address prev = NULL;
+	
     while (current != NULL) {
-        if (current->info == val) {
-            current = current->next;
-            deleteAt(l, idx, &temp);
-        }
-        
-        if (current->info != val) {
-            current = current->next;
-            idx++;
-        }
+		if (current->info == val) {
+			Address delete = current;
+			if (prev == NULL) { // Jika node pertama
+				*l = current->next;
+				current = current->next;
+			} else {
+				prev->next = current->next;
+				current = current->next;
+			}
+			free(delete);
+		} 
+		else {
+			prev = current;
+			current = current->next;
+		}
     }
-    
+
     displayList(*l);
     printf("\n");
-    // Node *temp = *l;
-    // Node *temp2;
-    // ElType buang;
-    // int awal = 1;
-    // while(temp != NULL){
-    //     if (awal && temp->info == val){
-    //         deleteFirst(l, &buang);
-    //         awal = 0;
-    //     }
-    //     else if (temp->next != NULL && temp->next->info == val){
-    //         temp2 = temp->next;
-    //         temp->next = temp->next->next;
-    //         free(temp2);
-    //     }
-    // }
-    // displayList(l);
 }
