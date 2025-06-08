@@ -1,4 +1,4 @@
-
+#include "cycle.h"
 #include "listlinier.h"
 #include "Boolean.h"
 #include <stdlib.h>
