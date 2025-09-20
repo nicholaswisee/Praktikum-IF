@@ -16,7 +16,7 @@ countOccur :: String -> Int
 countOccur s = 
     if (length s) == 0 then 0
     else if (length s) == 1 then 1
-    if (isNextSame s) == False then 1
+    else if (isNextSame s) == False then 1
     else 1 + countOccur (tail s)
 
 generateEncoding :: String -> (Char, Int)
