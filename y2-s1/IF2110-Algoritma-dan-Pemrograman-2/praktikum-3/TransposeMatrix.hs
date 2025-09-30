@@ -17,9 +17,9 @@ konsLo l s = l : s
 -- map tail m = [[2,3],[5,6],[8,9]]
 
 transposeMatrix :: [[Int]] -> [[Int]]
-transposeMatrix l = 
-    if (length l) <= 1 then l
-    else if (length (head l)) == 0 then []
-    else konsLo (map head l) (transposeMatrix (map tail l))  
-
+transposeMatrix l  
+    | length l == 0 = []
+    | length (head l) == 0 = []
+    | otherwise = konsLo (map head l) (transposeMatrix (map tail l))
+    
 -- TODO

@@ -33,8 +33,10 @@ sumList l =
 -- Lengkapi Fungsi di bawah ini
 columnOperations :: [[Int]] -> [Int]
 
-columnOperations listOfList = 
-    if (length (head listOfList)) >= 3 then
+columnOperations listOfList  
+    | length listOfList == 0 = []
+    | isEmpty (head listOfList) = []
+    | (length (head listOfList)) >= 3 = 
         let
             firstCol = map head listOfList
             secCol = map head (map tail listOfList)
@@ -42,16 +44,15 @@ columnOperations listOfList =
             rest =  map tail (map tail (map tail listOfList))
         in
             [(maxList firstCol)] ++ [(minList secCol)] ++ [(sumList thirdCol)] ++ (columnOperations rest)
-    else if (length (head listOfList) == 2) then
+    | (length (head listOfList) == 2) = 
         let
             firstCol = map head listOfList
             secCol = map head (map tail listOfList)
         in
             [(maxList firstCol)] ++ [(minList secCol)]
-    else if (length (head listOfList) == 1) then 
+    | (length (head listOfList) == 1) = 
         let 
             firstCol = map head listOfList
         in
             [maxList firstCol]
-    else 
-        []  
+    | otherwise = []
