@@ -50,33 +50,16 @@ isExistRight :: (BinTree Int) -> Bool
 isExistRight p =
   not (isTreeEmpty p) && not (isTreeEmpty (right p))
 
-sumLeftRight :: (BinTree Int) -> Int
-sumLeftRight tree
-    | isOneElmt tree = 0
-    | isUnerLeft tree = akar (left tree)
-    | isUnerRight tree = akar (right tree)
-    | otherwise = akar (left tree) + akar (right tree)
-
-sumOddIfExist :: (BinTree Int) -> Int
-sumOddIfExist tree = if (isTreeEmpty tree) then 0 else (akar tree)
-
--- Definisi dan Spesifikasi utama
-
-sum2Tuple :: (Int, Int) -> (Int, Int) -> (Int, Int)
-sum2Tuple (a, b) (c, d) = (a + b, c + d)
-
 oddEvenSums :: (BinTree Int) -> (Int, Int)
-oddEvenSums tree =
+oddEvenSums Empty = (0, 0)  -- kalau pohon kosong
+oddEvenSums (Node a l r) =
     let
-        oddSum = sumOddIfExist tree
-        evenSum = sumLeftRight tree
-        leftLeftTree = if isExistLeft (left tree) then left (left tree) else Empty
-        rightLeftTree = if isExistRight (left tree) then right (left tree) else Empty
-        leftRightTree = if isExistLeft (right tree) then left (right tree) else Empty
-        rightRightTree = if isExistRight (right tree) then right (right tree) else Empty
-    in
-        sum2Tuple (sum2Tuple (sum2Tuple (sum2Tuple (oddSum, evenSum) (oddEvenSums leftLeftTree)) (oddEvenSums rightLeftTree)) (oddEvenSums leftRightTree)) (oddEvenSums rightRightTree)
-
+        (incL, excL) = oddEvenSums l
+        (incR, excR) = oddEvenSums r
+        include = a + excL + excR
+        exclude = max incL excL + max incR excR
+    in (include, exclude)
+    
 maxRedSum :: (BinTree Int) -> Int
 maxRedSum tree =
     let
