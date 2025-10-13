@@ -79,7 +79,13 @@ isBiner _                        = False
 --   treeFoldPost (\l r x -> l + r + x) 0 u == 19
 -- TODO: Lengkapi fungsi fold post-order sesuai spesifikasi.
 treeFoldPost :: (a -> a -> Int -> a) -> a -> BinTree Int -> a
-treeFoldPost f b t = b
+treeFoldPost f b Empty = b
+treeFoldPost f b (Node x l r) =
+  let
+    l_res = treeFoldPost f b l
+    r_res = treeFoldPost f b r
+  in
+    f l_res r_res x
 
 -- SPESIFIKASI
 -- treeFoldPre f b t menghasilkan akumulasi nilai pohon t dengan fold pre-order menggunakan f dan basis b.
@@ -101,7 +107,14 @@ treeFoldPost f b t = b
 --   treeFoldPre (\x l r -> x + l + r) 0 u == 19
 -- TODO: Lengkapi fungsi fold pre-order sesuai spesifikasi.
 treeFoldPre :: (Int -> a -> a -> a) -> a -> BinTree Int -> a
-treeFoldPre f b t = b
+treeFoldPre f b Empty = b
+treeFoldPre f b (Node x l r) =
+  let
+    l_res = treeFoldPre f b l
+    r_res = treeFoldPre f b r
+  in
+    f x l_res r_res
+    
 -- SPESIFIKASI
 -- treeFoldIn f b t menghasilkan akumulasi nilai pohon t dengan fold in-order menggunakan f dan basis b.
 -- Definisi: proses subpohon kiri, kemudian akar, dan terakhir subpohon kanan.
@@ -122,4 +135,10 @@ treeFoldPre f b t = b
 --   treeFoldIn (\l x r -> l + x + r) 0 u == 19
 -- TODO: Lengkapi fungsi fold in-order sesuai spesifikasi.
 treeFoldIn :: (a -> Int -> a -> a) -> a -> BinTree Int -> a
-treeFoldIn f b t = b
+treeFoldIn f b Empty = b
+treeFoldIn f b (Node x l r) =
+  let
+    l_res = treeFoldIn f b l
+    r_res = treeFoldIn f b r
+  in
+    f l_res x r_res
