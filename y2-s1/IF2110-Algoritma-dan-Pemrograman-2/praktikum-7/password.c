@@ -2,12 +2,13 @@
 #include <stdio.h>
 
 int length(int angka) {
-    int len = 0;
+    if (angka == 0) return -1;
+	int len = 0;
 
-    while (angka % 10 != 0) {
-        angka /= 10;
-        len++;
-    }
+  do {
+    angka /= 10;
+    ++len;
+  } while (angka != 0);
 
     return len;
 }
@@ -64,9 +65,29 @@ int removeDigit(int angka, int index) {
 }
 
 void cariKombinasi(int angka, int current, int panjangAwal) {
-    
+	int len = length(angka);
+	// Kalo udah abis digitnya, print current
+	if (len == -1) {
+        printf("%d\n", current);
+        return;
+    }
+
+/*
+123 -> i = 0 -> 3: cariKombinasi(12, 3, 3)
+					cariKombinasi(1, 32, 3); --> 321
+					cariKombinasi(2, 31, 3); --> 312
+dst
+*/
+
+	for (int i = 0; i < len; i++) {
+        int d = getDigit(angka, i);
+        int newAngka = removeDigit(angka, i);
+        int newCurrent = current * 10 + d;
+        cariKombinasi(newAngka, newCurrent, panjangAwal);
+    }
 }
 
 void findPassword(int angka) {
-
+    int len = length(angka);
+    cariKombinasi(angka, 0, len);
 }
