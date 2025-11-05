@@ -2,27 +2,22 @@
 
 int n;
 
-void generateSubset(int idx, int subset_len, int subset[], int arr[]) {
-	
-	// gw gapaham lg gmn caranya men
-	if (idx < 0) {
+void generateSubset(int start, int k, int depth, int n, int *arr, int *subset) {
+    if (depth == k) {
         printf("[");
-        for (int i = subset_len - 1; i >= 0; i--) { 
+        for (int i = 0; i < k; i++) {
+            if (i) printf(",");
             printf("%d", subset[i]);
-            if (i > 0) printf(",");
         }
         printf("]\n");
-		return;
-	}
-	
-	// Pilihan 1: tidak ambil arr[idx]
-	generateSubset(idx - 1, subset_len, subset, arr);
-	
-    // Pilihan 2: ambil arr[idx]
-    subset[subset_len] = arr[idx];
-    generateSubset(idx - 1, subset_len + 1, subset, arr);
-	
+        return;
+    }
+    for (int i = start; i <= n - (k - depth); i++) {
+        subset[depth] = arr[i];
+        generateSubset(i + 1, k, depth + 1, n, arr, subset);
+    }
 }
+
 
 int main() {	
 	scanf("%d", &n);
@@ -33,6 +28,8 @@ int main() {
 		scanf("%d", &arr[i]);
 	}
 
-	generateSubset(n - 1, 0, subset, arr);
-	return 0;
+	for (int k = 0; k <= n; k++) {
+        generateSubset(0, k, 0, n, arr, subset);
+    }
+    return 0;
 }
