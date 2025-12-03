@@ -60,10 +60,32 @@
  * --------------------------------------------------------
  */
 
+int max(int a, int b) {
+	return (a > b) ? a : b;
+}
+
+int findMaxPath(BinTree node, int *globalMax) {
+    if (node == NULL) {
+        return 0;
+    }
+
+    // 1. Hitung max path dari anak kiri dan kanan.
+    int leftGain = max(findMaxPath(node->left, globalMax), 0);
+    int rightGain = max(findMaxPath(node->right, globalMax), 0);
+
+    int currentPathSum = node->info + leftGain + rightGain;
+
+    // 3. Update global maximum jika path bridge ini adalah yang terbesar sejauh ini
+    if (currentPathSum > *globalMax) {
+        *globalMax = currentPathSum;
+    }
+
+    return node->info + max(leftGain, rightGain);
+}
 
 
 int maxPathSum(BinTree root) {
-    // int globalMax = -1000000000; // bila diperlukan
+    int globalMax = -1000000000; // bila diperlukan
 
     /*
      * TODO:
@@ -71,6 +93,7 @@ int maxPathSum(BinTree root) {
      * - Boleh menambahkan fungsi rekursif helper bila diperlukan.
      * - Perhatikan kasus node bernilai negatif.
      */
+	findMaxPath(root, &globalMax);
 
-    return 0;  /* Ubah nilai ini setelah implementasi */
+    return globalMax;
 }

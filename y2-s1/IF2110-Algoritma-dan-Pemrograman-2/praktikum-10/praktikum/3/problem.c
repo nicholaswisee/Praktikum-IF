@@ -13,7 +13,7 @@
  #include <stdio.h>
  #include <stdlib.h>
  #include "bintree.h"   /* Asumsikan ADT bintree sudah disediakan */
- 
+
  /* =======================================================
   * Fungsi Utama: levelMaxSum
   * =======================================================
@@ -75,8 +75,49 @@
  * --------------------------------------------------------
  */
  
- int levelMaxSum(struct TreeNode* root) {
-     /* ====== TODO: Implementasi di bawah ini ====== */
-     return 0;
- }
+ int levelMaxSum(struct treeNode* root) {
+    if (root == NULL) {
+        return 0;
+    }
+
+
+    struct treeNode* queue[10005];
+    int front = 0;
+    int rear = 0;
+
+    queue[rear++] = root;
+
+    int currentLevel = 1;
+    int maxLevel = 1;
+    
+    int maxSum = -9999999; 
+
+    while (front < rear) {
+        int levelSize = rear - front; // Jumlah node pada level saat ini
+        long long currentLevelSum = 0;
+
+        // Proses semua node pada level ini
+        for (int i = 0; i < levelSize; i++) {
+            struct treeNode* node = queue[front++]; // Dequeue
+
+            currentLevelSum += node->info;
+
+            if (node->left != NULL) {
+                queue[rear++] = node->left;
+            }
+            if (node->right != NULL) {
+                queue[rear++] = node->right;
+            }
+        }
+		// Cek apakah sum level saat ini adalah yang terbesar
+        if (currentLevelSum > maxSum) {
+            maxSum = currentLevelSum;
+            maxLevel = currentLevel;
+        }
+
+        currentLevel++;
+    }
+
+    return maxLevel;
+} 
  
