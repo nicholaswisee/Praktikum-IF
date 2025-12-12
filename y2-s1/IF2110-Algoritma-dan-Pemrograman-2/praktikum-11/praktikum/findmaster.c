@@ -48,45 +48,32 @@
  */
 int findMaster(int n, int follow[][2], int followCount) {
     Graph g;
-    AdrNode p; // temp variable
+    g.first = NULL; 
+
+    AdrNode p;
+
+    // create nodes 1..n
     for (int i = 1; i <= n; i++) {
         insertNode(&g, i, &p);
     }
 
-    // insert edge
-    int prec, succ;
+    // insert edges
     for (int j = 0; j < followCount; j++) {
-        prec = follow[j][0];
-        succ = follow[j][1];
-
+        int prec = follow[j][0];
+        int succ = follow[j][1];
         insertEdge(&g, prec, succ);
     }
 
     int master = 0;
     AdrNode check = g.first;
+
     while (check != NULL) {
-        if (check->nPred == n - 1 && check->trail == NULL && master == 0) {
-            master = check->id;
-        } else if (check->nPred == n - 1 && check->trail == NULL && master != 0) {
-            return -1;
+        if (NPRED(check) == n - 1 && TRAIL(check) == NULL) {
+            if (master != 0) return -1;  // lebih dari satu kandidat
+            master = ID(check);
         }
-        
-        check = check->next;
+        check = NEXT(check);
     }
 
-    return master == 0 ? -1 : master;
-
-    // return 1;
-}
-
-int main() {
-    int n = 3;
-    int followCount = 2;
-
-    int follow[2][2] = {{1,2}, {2,3}};
-
-    int res = findMaster(n, follow, 2);
-    printf("%d", res);
-
-    return 0;
+    return (master == 0 ? -1 : master);
 }

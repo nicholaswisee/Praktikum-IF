@@ -2,36 +2,49 @@
 #include <stdio.h>
 
 int main() {
-    int n, m;
-    scanf("%d %d", &n, &m);
-    Graph g;
+    int N, M;
+    scanf("%d %d", &N, &M);
 
-    // insert edge
+    Graph g;
+    AdrNode temp;
+
+    // Initialize graph dgn 1 
+    CreateGraph(1, &g);
+
+    for (int i = 2; i <= N; i++) {
+        insertNode(&g, i, &temp);
+    }
+
+    /* Insert edges */
     int u, v;
-    for (int j = 0; j < m; j++) {
+    for (int i = 0; i < M; i++) {
         scanf("%d %d", &u, &v);
         insertEdge(&g, u, v);
     }
 
-    int a, b;
-    scanf("%d %d", &a, &b);
+    int A, B;
+    scanf("%d %d", &A, &B);
+
+    AdrNode nodeA = searchNode(g, A);
+    AdrAdjNode adjA = TRAIL(nodeA);
 
     int count = 0;
-    AdrNode vertex = g.first;
-    AdrAdjNode aEx, bEx;
-    while (vertex != NULL) {
-        aEx = searchEdge(g, a, vertex->id);
-        bEx = searchEdge(g, b, vertex->id);
+    while (adjA != NULL) {
+        int neighbor = SUCC_ID(adjA);
 
-        if (aEx != NULL && bEx != NULL) {
+        if (searchEdge(g, B, neighbor) != NULL) {
+            if (count > 0) printf(" ");
+            printf("%d", neighbor);
             count++;
-            printf("%d ", vertex->id);
         }
-        
-        vertex = vertex->next;
+
+        adjA = NEXTSUCC(adjA);
     }
 
-    if (count == 0) printf("0\n");
-    else printf("\n");
-    
+    if (count == 0) {
+        printf("0");
+    }
+    printf("\n");
+
+    return 0;
 }

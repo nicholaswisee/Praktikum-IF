@@ -15,26 +15,28 @@
 
 /* Selektor adjacency */
 #define SUCC_ID(p) (p)->succId
+#define WEIGHT(p) (p)->weight
 #define NEXTSUCC(p) (p)->next
 
 typedef struct graphNode *AdrNode;
 typedef struct graphAdjNode *AdrAdjNode;
 
 typedef struct graphNode {
-  int id;
-  int nPred;
-  AdrAdjNode trail; /* adjacency list (successors) */
-  AdrNode next;     /* next vertex in leader list */
+    int id;
+    int nPred;
+    AdrAdjNode trail; /* adjacency list (successors) */
+    AdrNode next;     /* next vertex in leader list */
 } GraphNode;
 
 typedef struct graphAdjNode {
-  int succId;
-  AdrAdjNode next;
+    int succId;
+    int weight; /* edge weight */
+    AdrAdjNode next;
 } GraphAdjNode;
 
 /* Definisi Graph: first menyimpan address simpul pertama */
 typedef struct {
-  AdrNode first;
+    AdrNode first;
 } Graph;
 
 Graph NewGraph(int x);
@@ -55,10 +57,10 @@ void deallocGraphNode(AdrNode p);
 /* I.S. p terdefinisi
    F.S. p terdealokasi */
 
-AdrAdjNode newAdjNode(int succId);
+AdrAdjNode newAdjNode(int succId, int weight);
 /* Mengembalikan address hasil alokasi adjacency.
    Jika alokasi berhasil, maka address tidak NULL, misalnya menghasilkan pt,
-   maka pt↑.succId = succId dan pt↑.next = NULL.
+   maka pt↑.succId = succId, pt↑.weight = weight, dan pt↑.next = NULL.
    Jika alokasi gagal, mengembalikan NULL. */
 
 void deallocAdjNode(AdrAdjNode p);
@@ -79,13 +81,12 @@ void insertNode(Graph *g, int x, AdrNode *pn);
    F.S. Jika alokasi berhasil, x menjadi elemen terakhir g, pn berisi address
    simpul x. Jika alokasi gagal, g tetap, pn berisi NULL. */
 
-void insertEdge(Graph *g, int prec, int succ);
-/* Menambahkan edge dari prec menuju succ ke dalam g.
-   I.S. g, prec, succ terdefinisi.
+void insertEdge(Graph *g, int prec, int succ, int weight);
+/* Menambahkan edge dari prec menuju succ ke dalam g dengan bobot weight.
+   I.S. g, prec, succ, weight terdefinisi.
    F.S. Jika belum ada edge <prec, succ> di g, maka tambahkan edge <prec, succ>
-   ke g (NPRED(succ) otomatis bertambah). Jika simpul prec/succ belum ada pada g,
-   tambahkan simpul tersebut dahulu. Jika sudah ada edge <prec, succ> di g,
-   maka g tetap. */
+   dengan bobot weight ke g. Jika simpul prec/succ belum ada pada g, tambahkan simpul tersebut
+   dahulu. Jika sudah ada edge <prec, succ> di g, maka g tetap. */
 
 void deleteNode(Graph *g, int x);
 /* Menghapus simpul x dari g.
