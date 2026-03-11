@@ -5,7 +5,8 @@ Nimon::Nimon() : Worker(), Warrior(), loyalty(0) {}
 Nimon::Nimon(const std::string &name, int power, const std::string &dimension,
              int workHours, const std::string &specialSkill, int armor,
              const std::string &weapon, int loyalty)
-    : Worker(name, power, dimension, workHours, specialSkill),
+    : Creature(name, power, dimension),
+      Worker(name, power, dimension, workHours, specialSkill),
       Warrior(name, power, dimension, armor, weapon), loyalty(loyalty) {}
 
 Nimon::~Nimon() = default;

@@ -4,7 +4,7 @@
 #include "Creature.hpp"
 #include <string>
 
-class Worker : public Creature {
+class Worker : virtual public Creature {
 protected:
   int workHours;
   std::string specialSkill;
