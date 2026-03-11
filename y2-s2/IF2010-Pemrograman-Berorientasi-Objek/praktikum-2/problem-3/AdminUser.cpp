@@ -1,12 +1,8 @@
-#ifndef __ADMINUSER_HPP__
-#define __ADMINUSER_HPP__
+#include "AdminUser.hpp"
 
-#include "User.hpp"
+AdminUser::AdminUser(const string &username, const string &password)
+    : User(username, password) {}
 
-class AdminUser : public User {
-public:
-  AdminUser(const string &username, const string &password);
-  bool isAdmin() const override; // Override, mengembalikan true untuk admin
-};
-
-#endif
+bool AdminUser::isAdmin() const {
+  return true; // Override untuk admin
+}
