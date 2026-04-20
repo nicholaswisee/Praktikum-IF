@@ -35,7 +35,7 @@ public class Main {
             System.out.println(couriers[i].deliver(items[i]));
         }
 
-        double averageSpeed = (n == 0) ? 0.0 : (double) totalSpeed / n;
+        double averageSpeed = (n == 0) ? 0.0 : (double)totalSpeed / n;
         System.out.printf("Average speed: %.2f%n", averageSpeed);
         System.out.println("Fast? " + fast);
 
