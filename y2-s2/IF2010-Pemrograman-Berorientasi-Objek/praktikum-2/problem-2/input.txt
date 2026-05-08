@@ -1,0 +1,10 @@
+9
+1 1 Milo 3 1
+1 2 Buddy 5 0
+1 3 Rio 2 5
+2 Milo
+2 Buddy
+2 Rio
+5 Milo
+5 Buddy
+5 Rio

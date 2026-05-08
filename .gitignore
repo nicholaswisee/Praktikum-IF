@@ -12,6 +12,8 @@
 *.zip
 *.txt
 
+!input.txt
+!output.txt
 
 kit/
 belajar-manual/

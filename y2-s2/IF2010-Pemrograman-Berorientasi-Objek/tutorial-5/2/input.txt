@@ -1,0 +1,10 @@
+/api/login
+admin_user
+200
+Success
+10543
+/api/users/10543
+10543
+200
+OK
+admin_user

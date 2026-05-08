@@ -1,0 +1,22 @@
+Vault kosong
+Kapasitas vault: 3
+Jumlah relic: 0
+[KOSONG] Error: Vault kosong
+[KOSONG] Error: Vault kosong
+[INVALID] Error: Nama relic tidak valid - nama terlalu pendek | Relic: Ab
+[INVALID] Error: Nama relic tidak valid - mengandung angka | Relic: Tr1dent
+Menyimpan Thunderbolt
+Menyimpan Shield
+Menyimpan Crown
+[PENUH] Error: Vault sudah penuh | Kapasitas maks: 3
+Relic teratas: Crown
+Jumlah relic: 3
+Vault tidak kosong
+[LOG] Relic ditolak, coba dilihat lagi relicnya :)
+[INVALID] Error: Nama relic tidak valid - mengandung angka | Relic: Ax9
+[LOG] Relic ditolak, coba dilihat lagi relicnya :)
+[INVALID] Error: Nama relic tidak valid - nama terlalu pendek | Relic: Xe
+Mengambil Crown
+Mengambil Shield
+Mengambil Thunderbolt
+[KOSONG] Error: Vault kosong

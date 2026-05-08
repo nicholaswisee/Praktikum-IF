@@ -1,0 +1,30 @@
+Test case 1: 3 4 +                              
+Hasil: 7
+--------------------
+Test case 2: 5 1 2 + 4 * + 3 -
+Hasil: 14
+--------------------
+Test case 3: +
+Exception: Operand tidak mencukupi untuk operasi.
+--------------------
+Test case 4: 3 + 4
+Exception: Operand tidak mencukupi untuk operasi.
+--------------------
+Test case 5: 4 0 /
+Exception: Pembagian dengan nol tidak diperbolehkan.
+--------------------
+Test case 6: 2 abc +
+Exception: Token tidak valid: abc
+--------------------
+Test case 7: 3 4
+Exception: Ekspresi tidak valid.
+--------------------
+Test case 8: -3 -2 *
+Hasil: 6
+--------------------
+Test case 9: 10 2 / 3 +
+Hasil: 8
+--------------------
+Test case 10: 15 -67x -
+Exception: Token tidak valid: -67x
+--------------------

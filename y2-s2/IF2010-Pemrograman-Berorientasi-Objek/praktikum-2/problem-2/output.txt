@@ -1,0 +1,18 @@
+[PET] Milo (age 3) entered the store
+[CAT] Milo entered as indoor cat
+[PET] Buddy (age 5) entered the store
+[DOG] Buddy entered as untrained dog
+[PET] Rio (age 2) entered the store
+[PARROT] Rio entered knowing 5 words
+[SOUND] Milo: Meow!
+[SOUND] Buddy: Woof!
+[SOUND] Rio: Squawk! I know 5 words!
+[STATUS] Milo | Age: 3 | Happiness: 50
+[STATUS] Buddy | Age: 5 | Happiness: 50
+[STATUS] Rio | Age: 2 | Happiness: 50
+[CAT] Milo meows goodbye
+[PET] Milo left the store
+[DOG] Buddy barks goodbye
+[PET] Buddy left the store
+[PARROT] Rio squawks goodbye
+[PET] Rio left the store

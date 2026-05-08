@@ -1,0 +1,4 @@
+Executing Request to /api/login with payload: admin_user
+Response 200 - Success | Data: 10543 (Type: Integer)
+Executing Request to /api/users/10543 with payload: 10543
+Response 200 - OK | Data: admin_user (Type: String)

@@ -1,0 +1,10 @@
+HELLO WORLD
+hello hello hello world world world
+dog lazy the over jumps fox brown quick The
+[CAPS] Hello World
+[REPEAT] hello world
+Vokal: 3.
+Pesan bukan tipe CAPS.
+Pengulang: 3.
+Pangram!
+Bukan pangram.

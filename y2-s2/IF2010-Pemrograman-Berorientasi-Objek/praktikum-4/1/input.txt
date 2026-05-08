@@ -1,0 +1,15 @@
+14
+ADD CAPS Hello World
+ADD REPEAT 3 hello world
+ADD PANGRAM The quick brown fox jumps over the lazy dog
+ADD PANGRAM bukan pangram ini
+PROCESS 1
+PROCESS 2
+PROCESS 3
+INFO 1
+INFO 2
+VOKAL 1
+VOKAL 2
+ULANG 2
+CEK 3
+CEK 4
