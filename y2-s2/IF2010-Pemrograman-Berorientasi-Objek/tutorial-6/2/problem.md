@@ -1,0 +1,1 @@
+Bantulah untuk membuat kelas DigitalClock ini lebih safe dengan memerhatikan pre & post condition pada suatu method menggunakan konsep Exception & Assertion. Berikut adalah file yang dibutuhkan. Kumpulkan file DigitalClock.java.
