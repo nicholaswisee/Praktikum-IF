@@ -85,7 +85,7 @@ public class DigitalClock {
         default:
             throw new IllegalArgumentException("Invalid mode");
         }
-        assert this.mode != null : "Mode should never be null";
+        assert isValidState() : "Mode should never be null";
     }
 
     public String format() {
@@ -142,6 +142,6 @@ public class DigitalClock {
         // TODO:
         // Return true jika hour, minute, second berada pada range valid.
         return hour >= 0 && hour <= 23 && minute >= 0 && minute <= 59 &&
-            second >= 0 && second <= 59;
+            second >= 0 && second <= 59 && mode != null;
     }
 }
