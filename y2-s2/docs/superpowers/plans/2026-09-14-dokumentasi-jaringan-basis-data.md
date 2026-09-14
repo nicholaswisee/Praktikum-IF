@@ -24,4 +24,4 @@
 - [x] Tambahkan README `prak2` dengan SQL lanjut, DDL/DML, dan panduan Compose.
 - [x] Tambahkan README `prak3` dengan cakupan lengkap, database `restaurant`, dan panduan Compose.
 - [x] Validasi tautan relatif, perintah, dan cakupan silabus.
-- [ ] Commit dalam batch dokumentasi yang independen dan mudah ditinjau.
+- [x] Commit dalam batch dokumentasi yang independen dan mudah ditinjau.
