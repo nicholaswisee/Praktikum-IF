@@ -1,0 +1,12 @@
+name: praktikum
+
+services:
+  db:
+    image: "167.205.32.151:5000/university:latest"
+    environment:
+      MARIADB_ROOT_PASSWORD: praktikumbasdat
+      MARIADB_DATABASE: university
+      MARIADB_USER: labdas
+      MARIADB_PASSWORD: praktikum
+    ports:
+      - 3306:3306
