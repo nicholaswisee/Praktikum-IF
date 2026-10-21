@@ -1,0 +1,9 @@
+name: praktikum
+
+services:
+  db:
+    image: "167.205.32.151:5000/airport:1"
+    environment:
+      POSTGRES_PASSWORD: praktikum
+    ports:
+      - "5432:5432"
