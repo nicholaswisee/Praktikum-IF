@@ -6,9 +6,10 @@ Kumpulan notebook, data, dan aset praktikum IF3170 Inteligensi Artifisial. Noteb
 
 ## Praktikum
 
-| Praktikum | Fokus | Dokumentasi |
-| --- | --- | --- |
-| 1 | Analisis data film dan penerapan metode kecerdasan artifisial | Notebook dan data tersedia di [prak1](prak1/). |
+| Praktikum | Fokus                            | Dokumentasi                                    |
+| --------- | -------------------------------- | ---------------------------------------------- |
+| 1         | Data Understanding & Preparation | Notebook dan data tersedia di [prak1](prak1/). |
+| 1         | Supervised Learning              | TBA                                            |
 
 ## Menjalankan Notebook
 
